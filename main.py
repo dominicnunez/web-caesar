@@ -14,6 +14,9 @@ def favicon():
 def index():
    return render_template("web-caesar.html")
 
+@app.route('/encrypt')
+
+
 
 if __name__ == '__main__':
     app.run(debug = True)
