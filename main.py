@@ -1,4 +1,4 @@
-import os
+import os, caesar
 from flask import Flask, render_template, send_from_directory, request
 
 app = Flask(__name__)
@@ -9,13 +9,10 @@ def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 
 def index():
    return render_template("web-caesar.html")
-
-@app.route('/encrypt')
-
 
 
 if __name__ == '__main__':
