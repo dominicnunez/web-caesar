@@ -1,34 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'index.html' %}
 
-<head>
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Caesar Cipher</title>
-</head>
-
-<body>
-    <header>
-        <h1>Web Caesar</h1>
-    </header>
-    <main>
-        <section id="user-input" class="user-input">
-            <div class="form">
-                <form action="/" method="post" id="caesar" class="form">
-                    <div class="form"><label for="rotate">Rotate by: </label><input type="number" name="rot" id="rotate"
-                            value="{{ rotation }}"></div>
-                    <div class="form"><label for="message">Message</label>
-                        <textarea name="msg" id="message" placeholder="Enter message here...">{{ user_message }}</textarea>
-                    </div>
-                    <div class="form"><button id="submit" class="button">Submit</button></div>
-                </form>
-            </div>
-        </section>
-    </main>
-    <footer></footer>
-</body>
-
-</html>
+{% block body %}
+<header>
+    <h1 class="header">Web Caesar</h1>
+</header>
+<main>
+    <section id="user-input" class="user-input">
+        <div class="form">
+            <form action="/" method="post" id="caesar" class="form">
+                <div class="form"><label for="rotate">Rotate by: </label><input type="number" name="rot" id="rotate"
+                        value="{{ rotation }}"></div>
+                <div class="form">
+                    <textarea name="msg" id="message" placeholder="Enter message here...">{{ user_message }}</textarea>
+                </div>
+                <div class="form"><button id="submit" class="button">Submit</button></div>
+            </form>
+        </div>
+    </section>
+</main>
+<footer></footer>
+{% endblock %}
