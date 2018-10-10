@@ -19,21 +19,12 @@
             <div class="form">
                 <form action="/" method="post" id="caesar" class="form">
                     <div class="form"><label for="rotate">Rotate by: </label><input type="number" name="rot" id="rotate"
-                            value="0"></div>
-                    <div class="form"><label for="message">Message</label><input type="text" name="msg" id="message"
-                            placeholder="Enter message here..."></div>
+                            value="{{ rotation }}"></div>
+                    <div class="form"><label for="message">Message</label>
+                        <textarea name="msg" id="message" placeholder="Enter message here...">{{ user_message }}</textarea>
+                    </div>
                     <div class="form"><button id="submit" class="button">Submit</button></div>
                 </form>
-            </div>
-        </section>
-        <section id="encoded">
-            <div class="encoded">
-                <h2 class="encoded"></h2>
-                <div class="encoded">
-                    {% if user_message %}
-                    <p>{{ user_message }}</p>
-                    {% endif %}
-                </div>
             </div>
         </section>
     </main>

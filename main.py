@@ -14,12 +14,12 @@ def favicon():
 def index():
     error = "Oops... something went wrong..."
     if request.method == "POST":
-        rot = request.form["rot"]
+        rot = int(request.form["rot"])
         msg = request.form["msg"]
         cipher_msg = caesar.rotate_string(msg, rot)
-        return render_template("web-caesar.html", user_message=cipher_msg)
+        return render_template("web-caesar.html", rotation=rot, user_message=cipher_msg)
     else:
-        return render_template("web-caesar.html")
+        return render_template("web-caesar.html", rotation=0, user_message="")
 
     return error
     
