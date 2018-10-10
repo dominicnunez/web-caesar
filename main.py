@@ -12,8 +12,17 @@ def favicon():
 @app.route('/', methods=["GET", "POST"])
 
 def index():
-   return render_template("web-caesar.html")
+    error = "Oops... something went wrong..."
+    if request.method == "POST":
+        rot = request.form["rot"]
+        msg = request.form["msg"]
+        cipher_msg = caesar.rotate_string(msg, rot)
+        return render_template("web-caesar.html", user_message=cipher_msg)
+    else:
+        return render_template("web-caesar.html")
 
+    return error
+    
 
 if __name__ == '__main__':
     app.run(debug = True)
